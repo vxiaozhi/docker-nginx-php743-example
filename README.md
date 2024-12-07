@@ -6,6 +6,40 @@
 
 This is a simple example for running a docker container with PHP-FPM and NGINX.
 
+
+## 在 **[liKeYun_ylb](https://github.com/likeyun/liKeYun_ylb)** 项目中的实践
+
+**结论：** 在安装环节会 返回 500 错误码， 因为 PHP镜像中没有安装MySQL扩展。
+
+1.  Start MySQL if needed.
+
+```
+$ docker run --rm --name  test-mysql  -p 3306:3306 -e MYSQL_ROOT_PASSWORD=test123 -d mysql:latest
+
+```
+
+2. 拷贝文件
+
+```
+cp -r  ../liKeYun_ylb/* ./public/
+chmod -R 777 ./public/
+```
+
+3. 安装
+
+```
+http://sing2.tool333.com:8088/install/install.html
+```
+
+```
+10.0.0.12
+root test123
+ylb test@test.com
+admin test123
+```
+
+
+
 ## Get it up and running
 
 [Install docker on your machine.][install-docker]
@@ -84,6 +118,9 @@ php_1  | [24-Oct-2019 20:12:27] NOTICE: ready to handle connections
 Visit `localhost:8080` in your browser. You should see an output like this.
 
 ![Hello World Output with Docker and PHP + Nginx](./resources/screenshot-01.png)
+
+
+
 
 ## License
 
